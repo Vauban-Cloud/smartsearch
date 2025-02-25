@@ -14,8 +14,9 @@ However, you can use this interface for internal or Internet-facing use-cases wi
    - [www/questions.json](#wwwquestionsjson)
 4. [Customizing Language Files](#customizing-language-files)
 5. [Prompt Engineering](#prompt-engineering)
-6. [Testing Your Installation](#testing-your-installation)
-7. [Troubleshooting](#troubleshooting)
+6. [Updating Favicon](#updating-favicon)
+7. [Testing Your Installation](#testing-your-installation)
+8. [Troubleshooting](#troubleshooting)
 
 ## Prerequisites
 
@@ -199,6 +200,33 @@ $add_prompt = [
 ```
 
 Remember that prompt engineering is iterative—review search results periodically and refine your prompts based on user feedback and search performance.
+
+
+## Updating Favicon
+
+A favicon matching your logo/theme enhances your Smart Search's appearance by displaying your company logo in browser tabs and bookmarks. Follow these steps to implement your favicon:
+
+1. Convert your logo image to the appropriate favicon formats:
+   - Navigate to https://favicon.io/favicon-converter/
+   - Upload your PNG logo image (minimum 512x512 pixels, square format)
+   - Download the resulting ZIP file containing the converted favicon files
+
+2. The ZIP file should contain the following essential files:
+   - android-chrome-192x192.png
+   - android-chrome-512x512.png
+   - apple-touch-icon.png
+   - favicon-16x16.png
+   - favicon-32x32.png
+   - favicon.ico
+   - site.webmanifest
+
+3. Extract and organize the files:
+   - Unzip the downloaded file
+   - Place favicon.ico file in your Smart Search system's `www/` directory
+   - Move all PNG files to the `www/icons/` folder
+   - Ignore the site.webmanifest file, as it already exists
+
+4. No further configuration is necessary. The system will automatically detect and use these files to display your favicon across different browsers and devices.
 
 
 ## Testing Your Installation
