@@ -1,0 +1,66 @@
+{
+  "en": {
+    "short-question1": "Neural interface technology",
+    "long-question1": "How do neural interface technologies connect to the human brain?",
+    "short-question2": "Brain implant safety",
+    "long-question2": "What safety protocols are in place for brain implant procedures?",
+    "short-question3": "Clinical applications",
+    "long-question3": "What are the clinical applications for neural interface implants in treating neurological disorders?"
+  },
+  "fr": {
+    "short-question1": "Technologie d'interface neuronale",
+    "long-question1": "Comment les technologies d'interface neuronale se connectent-elles au cerveau humain ?",
+    "short-question2": "Sécurité des implants cérébraux",
+    "long-question2": "Quels protocoles de sécurité sont en place pour les procédures d'implants cérébraux ?",
+    "short-question3": "Applications cliniques",
+    "long-question3": "Quelles sont les applications cliniques des implants d'interface neuronale dans le traitement des troubles neurologiques ?"
+  },
+  "de": {
+    "short-question1": "Neurale Schnittstellentechnologie",
+    "long-question1": "Wie verbinden sich neurale Schnittstellentechnologien mit dem menschlichen Gehirn?",
+    "short-question2": "Sicherheit von Gehirnimplantaten",
+    "long-question2": "Welche Sicherheitsprotokolle gibt es für Gehirnimplantat-Verfahren?",
+    "short-question3": "Klinische Anwendungen",
+    "long-question3": "Welche klinischen Anwendungen gibt es für neurale Schnittstellenimplantate bei der Behandlung neurologischer Erkrankungen?"
+  },
+  "es": {
+    "short-question1": "Tecnología de interfaz neural",
+    "long-question1": "¿Cómo se conectan las tecnologías de interfaz neural al cerebro humano?",
+    "short-question2": "Seguridad de implantes cerebrales",
+    "long-question2": "¿Qué protocolos de seguridad existen para los procedimientos de implantes cerebrales?",
+    "short-question3": "Aplicaciones clínicas",
+    "long-question3": "¿Cuáles son las aplicaciones clínicas de los implantes de interfaz neural en el tratamiento de trastornos neurológicos?"
+  },
+  "it": {
+    "short-question1": "Tecnologia di interfaccia neurale",
+    "long-question1": "Come si collegano le tecnologie di interfaccia neurale al cervello umano?",
+    "short-question2": "Sicurezza degli impianti cerebrali",
+    "long-question2": "Quali protocolli di sicurezza sono in atto per le procedure di impianto cerebrale?",
+    "short-question3": "Applicazioni cliniche",
+    "long-question3": "Quali sono le applicazioni cliniche degli impianti di interfaccia neurale nel trattamento dei disturbi neurologici?"
+  },
+  "pt": {
+    "short-question1": "Tecnologia de interface neural",
+    "long-question1": "Como as tecnologias de interface neural se conectam ao cérebro humano?",
+    "short-question2": "Segurança de implantes cerebrais",
+    "long-question2": "Quais protocolos de segurança existem para procedimentos de implante cerebral?",
+    "short-question3": "Aplicações clínicas",
+    "long-question3": "Quais são as aplicações clínicas dos implantes de interface neural no tratamento de distúrbios neurológicos?"
+  },
+  "nl": {
+    "short-question1": "Neurale interfacetechnologie",
+    "long-question1": "Hoe verbinden neurale interfacetechnologieën zich met het menselijk brein?",
+    "short-question2": "Veiligheid van hersenimplantaten",
+    "long-question2": "Welke veiligheidsprotocollen zijn er voor hersenimplantaatprocedures?",
+    "short-question3": "Klinische toepassingen",
+    "long-question3": "Wat zijn de klinische toepassingen van neurale interface-implantaten bij de behandeling van neurologische aandoeningen?"
+  },
+  "de-ch": {
+    "short-question1": "Neural Schnittstelletechnologie",
+    "long-question1": "Wie verbindet sich d'neural Schnittstelletechnologie mit em menschliche Hirn?",
+    "short-question2": "Sicherheit vo Hirnimplantat",
+    "long-question2": "Weli Sicherheitsprotokoll gits für Hirnimplantat-Verfahre?",
+    "short-question3": "Klinischi Awändige",
+    "long-question3": "Weli klinische Awändige gits für neurali Schnittstelleimplantat bi de Behandlig vo neurologische Erkrankige?"
+  }
+}

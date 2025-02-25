@@ -1,0 +1,33 @@
+{
+  "title": "My Smart Company - Smart Search Engine",
+  "tabList": ["document_base_name"],
+  "defaultLang": "en",
+  "colors": {
+    "primary": "#7b8dc6",
+    "secondary": "#7b8dc6",
+    "accent": "#f4a74b",
+    "dark": "#3c3c3c"
+  },
+  "logoPath": "logo-smart.png",
+  "url": "https://example.com/",
+  "filesList": "/api/list.php",
+  "searchUrl": "/api/search.php",
+  "storageUrl": "/files/",
+  "suggestions": [
+  {
+    "text": "short-question1",
+    "question": "long-question1",
+    "icon": "fa-box"
+  },
+  {
+    "text": "short-question2",
+    "question": "long-question2",
+    "icon": "fa-book"
+  },
+  {
+    "text": "short-question3",
+    "question": "long-question3",
+    "icon": "fa-brain"
+  }
+  ]
+}
