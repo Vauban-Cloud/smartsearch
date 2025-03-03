@@ -1,19 +1,16 @@
 <?php
+
 // API configuration
-include("../../.config.php");
+define('CONFIG_PATH', '../.config.php');
+
+if(!isset($_GET["db"])) ini_set('opcache.enable', 0);
+include(CONFIG_PATH);
+include("headers.inc.php");
+include("utils.inc.php");
+
 $apiUrl = 'https://api.ai.vauban.cloud/v1/rag/documents';
 
-header('Connection: keep-alive');
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: GET, OPTIONS');
-header('Access-Control-Allow-Headers: Content-Type');
-
-if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-    http_response_code(204);
-    exit();
-}
-
-function getFromCache($cacheKey, $ttl = 86400) {
+function getFromCache($cacheKey, $ttl = 60) {
     $cacheFile = sys_get_temp_dir() . '/cache_' . md5($cacheKey);
     if (file_exists($cacheFile)) {
         $fileAge = time() - filemtime($cacheFile);
@@ -28,14 +25,13 @@ function saveToCache($cacheKey, $data) {
     return file_put_contents($cacheFile, serialize($data));
 }
 
-header('Cache-Control: no-cache');
-header('Content-Type: application/json');
-
-if(!isset($_GET["db"])) exit();
-else $db=$_GET["db"];
+if(!isset($_GET["db"])) {
+	echo json_encode(array_keys($APIKEY));
+	exit();
+} else $db=$_GET["db"];
 
 // Set up the request headers
-$headers = [ 'Authorization: Bearer ' . $apiKey[$db], 'Accept: application/json' ];
+$headers = [ 'Authorization: Bearer ' . $APIKEY[$db], 'Accept: application/json' ];
 
 // Execute the request
 $response = getFromCache($db);
@@ -51,14 +47,9 @@ if ($response === false) {
     curl_close($ch);
     saveToCache($db, $response);
     // Check for errors
-    if (curl_errno($ch)) {
-        header('HTTP/1.1 500 Internal Server Error');
-        echo json_encode(['error' => 'Curl error: ' . curl_error($ch)]);
-        exit;
-     }
-     $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-     curl_close($ch);
-     http_response_code($httpCode);
+    if (curl_errno($ch)) err(500,curl_error($ch));
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
 }
 
 // Output the response as-is

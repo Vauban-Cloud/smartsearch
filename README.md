@@ -21,7 +21,7 @@ However, you can use this interface for internal or Internet-facing use-cases wi
 ## Prerequisites
 
 Before starting the installation, ensure you have:
-- Web server with PHP 7.4+ support (PHP required only in the "api/" folder)
+- Web server (HTTPS only) with PHP 7.4+ support (PHP required only in the "api/" folder)
 - API key(s) for Vauban AI (one key for each document base)
 - Git installed on your system
 - Basic understanding of JSON and PHP configuration
@@ -49,7 +49,8 @@ You'll need to modify three configuration files to customize your installation:
 
 ### .config.php
 
-This file contains API keys and language-specific prompts.
+This file contains API keys and language-specific prompts, it is not in a browsable directory.
+You can change the location of this file to better suit your needs by editing the first line of all PHP scripts in the www/api/ folder.
 
 1. Open `.config.php` in your editor.
 2. Replace `'API_KEY_FOR_THIS_BASE'` with your actual Vauban AI API key for each document base.
@@ -238,6 +239,7 @@ After completing your configuration:
 3. Test each language option to ensure the correct content displays.
 4. Verify that the search functionality works by entering test queries.
 5. Confirm that suggestions appear and function correctly when clicked.
+6. Well, looks like this is now ready for Production (!TGIF).
 
 
 ## Troubleshooting

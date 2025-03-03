@@ -1,10 +1,21 @@
 <?php
 
 // Vauban AI API Key
-$apiKey["document_base_name"] = 'API_KEY_FOR_THIS_BASE';
+$APIKEY["document_base_name"] = 'API_KEY_FOR_THIS_BASE';
+
+// Access-Control-Allow-Origin
+// FOR PRODUCTION, PUT THE URL OF YOUR API HERE
+$ALLOWORIGIN="*";
+
+// Editor's authentication credentials
+// best practice : change me...
+$USERNAME = "admin";
+// UPDATE THIS FIELD !
+// echo -n "YourPassword123" | openssl dgst -sha3-512 | cut -d ' ' -f 2
+$HASHEDPASS = "";
 
 // Additional prompt post-RAG
-$add_prompt = [
+$ADDPROMPT = [
    "en" => "#\n#Specific Instructions\nYou must answer the question in the contribution below.\nYou are a search engine with access to a database of documentation.\nYou can generate markdown for responses.\nAlways answer in English.\n",
 
    "fr" => "#\n#Instructions spécifiques\nVous devez répondre à la question posée dans la contribution ci-dessous.\nVous êtes un moteur de recherche qui a accès à une base de données de documentation.\nTu peux générer du markdown pour les réponses.\nToujours répondre en Français.\n",
@@ -21,6 +32,10 @@ $add_prompt = [
 
    "de-ch" => "#\n#Spezifischi Awisige\nSi müend d'Frog im Bitrag do unde beantworte.\nSi sind e Suechi mit Zuegriff uf e Datebank mit Dokumänt.\nSi chönd Markdown für d'Antworte generiere.\nImmer uf Schwiizerdütsch antworte.\n"
 ];
+
+// Cookie Security
+// IF API IS NOT ON THE SAME URL AS THE STATIC, YOU MIGHT NEED TO CHANGE THIS
+$SAMESITE="Strict";
 
 // Streaming mode - TODO : FOR LATER USE
 $STREAMING=false;

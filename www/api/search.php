@@ -1,18 +1,13 @@
 <?php
 
-include('../../.config.php');
+// API configuration
+define('CONFIG_PATH', '../.config.php');
 
-header('Connection: keep-alive');
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: POST, OPTIONS');
-header('Access-Control-Allow-Headers: Content-Type');
+include(CONFIG_PATH);
+include("headers.inc.php");
 
-if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-    http_response_code(204);
-    exit();
-}
-
-header('Cache-Control: no-cache');
+// ini settings for large file uploads
+ini_set('max_execution_time', '180');
 
 if($STREAMING) {
   header('Content-Type: text/event-stream');
@@ -48,20 +43,20 @@ $apiRequest = [
     "max_tokens" => 1024,
     "rag" => true,
     "repetition_penalty" => 1,
-    "additional_prompt" => $add_prompt[$lang],
+    "additional_prompt" => $ADDPROMPT[$lang],
     "deferred" => false
 ];
 
 function err($msg) {
         http_response_code(400);
         echo json_encode(['error' => $msg]);
-        exit;
+        exit();
 }
 
 // Endpoint
-if($apiKey[$data['base']]==null) err("Base and API key mismatch");
+if($APIKEY[$data['base']]==null) err("Base and API key mismatch");
 $openaiEndpoint = 'https://api.vauban.cloud/v1/chat/completions';
-$headers = [ "Authorization: Bearer ".$apiKey[$data['base']], "Content-Type: application/json" ];
+$headers = [ "Authorization: Bearer ".$APIKEY[$data['base']], "Content-Type: application/json" ];
 $ch = curl_init($openaiEndpoint);
 
 if($STREAMING) {
@@ -91,20 +86,18 @@ if($STREAMING) {
     CURLOPT_POSTFIELDS => json_encode($apiRequest)
   ]);
   $response = curl_exec($ch);
-  $aiResponse = json_decode($response, true);
-  if($aiResponse===null) err($aiResponse['error']);
-  $response = [
+  if (curl_errno($ch)) {
+    err(curl_error($ch));
+  } else {
+    $aiResponse = json_decode($response, true);
+    if(!isset($aiResponse['choices'])) err($aiResponse['error']);
+    $response = [
     'sources' => !empty($aiResponse['sources']) ? array_map(function($source) {
         return ['filename' => $source['filename'], 'page' => $source['page_nbr']];
     }, $aiResponse['sources']) : [],
     'content' => isset($aiResponse['choices'][0]['message']['content']) ?
         $aiResponse['choices'][0]['message']['content'] : ''
-  ];
-  if (curl_errno($ch)) {
-    echo "event: error\ndata: " . json_encode(['error' => curl_error($ch)]) . "\n\n";
-    ob_flush();
-    flush();
-  } else {
+    ];
     echo json_encode($response);
   }
 }
