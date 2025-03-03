@@ -1,6 +1,5 @@
 {
   "title": "My Smart Company - Smart Search Engine",
-  "tabList": ["document_base_name"],
   "defaultLang": "en",
   "colors": {
     "primary": "#7b8dc6",
@@ -13,6 +12,7 @@
   "filesList": "/api/list.php",
   "searchUrl": "/api/search.php",
   "storageUrl": "/files/",
+  "editorRoot": "/",
   "suggestions": [
   {
     "text": "short-question1",

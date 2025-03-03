@@ -4,7 +4,8 @@
 $APIKEY["document_base_name"] = 'API_KEY_FOR_THIS_BASE';
 
 // Access-Control-Allow-Origin
-// FOR PRODUCTION, PUT THE URL OF YOUR API HERE
+// FOR PRODUCTION, PUT THE URL OF THE SITE OR PHP SCRIPTS ROOT HERE
+// ie: https://smartsearch.example.com
 $ALLOWORIGIN="*";
 
 // Editor's authentication credentials

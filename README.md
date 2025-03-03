@@ -62,9 +62,9 @@ Example configuration:
 ```php
 <?php
 // Vauban AI API Key
-$apiKey["my_company_docs"] = 'your-actual-api-key-12345';
+$APIKEY["my_company_docs"] = 'your-actual-api-key-12345';
 // Additional prompt post-RAG
-$add_prompt = [
+$ADDPROMPT = [
    "en" => "#\n#Specific Instructions\nYou must answer the question in the contribution below.\nYou are a search engine with access to a database of documentation.\nYou can generate markdown for responses.\nAlways answer in English.\n",
    // Other languages...
 ];
@@ -80,7 +80,6 @@ This file controls the user interface configuration.
 1. Open `www/config.json` in your editor.
 2. Customize the following fields:
    - `title`: Your company name and application title
-   - `tabList`: List of document base names (should match keys in `$apiKey` from `.config.php`)
    - `defaultLang`: Default language code from "en", "fr", "es", "it", "nl", "pt", "de", "de-ch"
    - `colors`: Customize the color scheme
    - `logoPath`: Path to your company logo
@@ -91,7 +90,6 @@ Example configuration:
 ```json
 {
   "title": "My Smart Company - Smart Search Engine",
-  "tabList": ["document_base_name"],
   "defaultLang": "en",
   "colors": {
     "primary": "#7b8dc6",
@@ -104,6 +102,7 @@ Example configuration:
   "filesList": "/api/list.php",
   "searchUrl": "/api/search.php",
   "storageUrl": "/files/",
+  "editorRoot": "/",
   "suggestions": [
   {
     "text": "short-question1",
