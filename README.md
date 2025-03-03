@@ -37,7 +37,10 @@ Before starting the installation, ensure you have:
 2. Set proper permissions:
    ```bash
    chmod 750 ./www
-   chmod 640 ./.config.php
+   chmod 750 ./www/api
+   chmod 750 ./www/assets
+   chmod 750 ./www/icons
+   chmod 660 ./.config.php
    chgrp -R <your_PHP_user> ./www ./.config.php
    ```
 
