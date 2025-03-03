@@ -14,7 +14,7 @@ However, you can use this interface for internal or Internet-facing use-cases wi
    - [www/questions.json](#wwwquestionsjson)
 4. [Customizing Language Files](#customizing-language-files)
 5. [Prompt Engineering](#prompt-engineering)
-6. [Updating Favicon](#updating-favicon)
+6. [Updating the Favicon](#updating-favicon)
 7. [Testing Your Installation](#testing-your-installation)
 8. [Troubleshooting](#troubleshooting)
 
@@ -69,8 +69,8 @@ This file contains API keys and language-specific prompts, it is not in a browsa
 You can change the location of this file to better suit your needs by editing the first line of all PHP scripts in the www/api/ folder.
 
 1. Open `.config.php` in your editor.
-2. Replace `'API_KEY_FOR_THIS_BASE'` with your actual Vauban AI API key for each document base.
-3. Customize the language-specific prompts in the `$add_prompt` array if needed.
+2. Replace `'your-actual-api-key-12345'` with your actual Vauban AI API key for each document base.
+3. Customize the language-specific prompts in the `$ADDPROMPT` array if needed.
 4. Keep the `$STREAMING` variable as `false` for now (future functionality).
 
 Example configuration:
@@ -87,7 +87,7 @@ $ALLOWORIGIN = "*";
 
 // Editor's authentication credentials
 //
-// LEAVE EMPTY TO DISABLE EDITOR
+// LEAVE $USERNAME and/or $HASHEDPASS EMPTY TO DISABLE THE EDITOR
 
 // best practice: change me...
 $USERNAME = "admin";
@@ -101,6 +101,7 @@ $ADDPROMPT = [
    "en" => "#\n#Specific Instructions\nYou must answer the question in the contribution below.\nYou are a search engine with access to a database of documentation.\nYou can generate markdown for responses.\nAlways answer in English.\n",
    // Other languages...
 ];
+
 // Streaming mode (FOR LATER USE)
 $STREAMING=false;
 ?>
@@ -211,7 +212,7 @@ Understanding our existing research is crucial for advancing our neural interfac
 
 ## Prompt Engineering
 
-The `$add_prompt` array in `.config.php` allows you to customize how the AI responds to user queries. Effective prompt engineering can significantly enhance search quality and user experience.
+The `$ADDPROMPT` array in `.config.php` allows you to customize how the AI responds to user queries. Effective prompt engineering can significantly enhance search quality and user experience.
 
 ### Key Principles for Customizing Prompts
 
@@ -225,10 +226,10 @@ When modifying the language-specific prompts in `$add_prompt`, consider these be
 
 4. **Maintain language consistency.** Ensure each language version conveys the same instructions while being culturally appropriate for speakers of that language.
 
-### Example of Enhanced $add_prompt Configuration
+### Example of Enhanced $ADDPROMPT Configuration
 
 ```php
-$add_prompt = [
+$ADDPROMPT = [
    "en" => "#\n#Specific Instructions\nYou are a neural interface research assistant with expertise in brain-computer interfaces.\nRespond with technical accuracy while making complex concepts accessible.\nInclude references to specific documents when relevant.\nOrganize long responses with markdown headings.\nDirect implementation questions to technical documentation.\nAlways answer in English.\n",
    // Other languages follow similar pattern with translated content
 ];
@@ -237,7 +238,7 @@ $add_prompt = [
 Remember that prompt engineering is iterative—review search results periodically and refine your prompts based on user feedback and search performance.
 
 
-## Updating Favicon
+## Updating the Favicon
 
 A favicon matching your logo/theme enhances your Smart Search's appearance by displaying your company logo in browser tabs and bookmarks. Follow these steps to implement your favicon:
 
@@ -273,7 +274,8 @@ After completing your configuration:
 3. Test each language option to ensure the correct content displays.
 4. Verify that the search functionality works by entering test queries.
 5. Confirm that suggestions appear and function correctly when clicked.
-6. Well, looks like this is now ready for Production (!TGIF).
+6. Try the editor by entering */#/editor* at the end of the URL.
+7. Well, looks like this is now ready for Production (!TGIF).
 
 
 ## Troubleshooting
