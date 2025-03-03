@@ -26,12 +26,18 @@ Before starting the installation, ensure you have:
 - Git installed on your system
 - Basic understanding of JSON and PHP configuration
 
-If you want to use the editor and need to upload large documents, you will have to raise some limits in your php.ini :
+If you need to upload large documents to the editor, you must increase the following limits in your `php.ini` file:
+
+```php
 upload_max_filesize = 47M
 post_max_size = 48M
+```
 
-Your webserver should also allow large POST.
-For example, on Nginx, this is done with setting client_max_body_size 48M;
+Your webserver must also be configured to allow large POST requests. For example, on Nginx, add this setting:
+
+```nginx
+client_max_body_size 48M;
+```
 
 ## Installation
 
