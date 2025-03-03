@@ -1,6 +1,6 @@
 <?php
 
-define('CONFIG_PATH', '../.config.php');
+define('CONFIG_PATH', '../../.config.php');
 
 include(CONFIG_PATH);
 include("utils.inc.php");

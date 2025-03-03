@@ -1,7 +1,7 @@
 <?php
 
 // API configuration
-define('CONFIG_PATH', '../.config.php');
+define('CONFIG_PATH', '../../.config.php');
 
 if(!isset($_GET["db"])) ini_set('opcache.enable', 0);
 include(CONFIG_PATH);
