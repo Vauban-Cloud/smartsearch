@@ -63,6 +63,23 @@ Example configuration:
 <?php
 // Vauban AI API Key
 $APIKEY["my_company_docs"] = 'your-actual-api-key-12345';
+
+// Access-Control-Allow-Origin
+// FOR PRODUCTION, PUT THE URL OF THE SITE OR PHP SCRIPTS ROOT HERE
+// ie: https://smartsearch.example.com
+$ALLOWORIGIN = "*";
+
+// Editor's authentication credentials
+//
+// LEAVE EMPTY TO DISABLE EDITOR
+
+// best practice: change me...
+$USERNAME = "admin";
+
+// UPDATE THIS FIELD!
+// echo -n "Your Best Password..." | openssl dgst -sha3-512 | cut -d ' ' -f 2
+$HASHEDPASS = "";
+
 // Additional prompt post-RAG
 $ADDPROMPT = [
    "en" => "#\n#Specific Instructions\nYou must answer the question in the contribution below.\nYou are a search engine with access to a database of documentation.\nYou can generate markdown for responses.\nAlways answer in English.\n",
@@ -122,6 +139,8 @@ Example configuration:
   ]
 }
 ```
+
+You can find icons on the [Icon Explorer website](https://iconexplorer.app/icons/fontawesome-v6?selected). Feel free to use any icon whose name starts with "fas".
 
 > **Note**: The `"text"` and `"question"` fields in the suggestions array are used as keys that will be replaced with language-specific content from the `questions.json` file.
 
