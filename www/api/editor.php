@@ -38,8 +38,8 @@ switch ($action) {
         break;
         
     case 'logout':
+	session_start();
 	setcookie(session_name(), '', ['expires' => time() - 42000, 'path' => '/', 'domain' => '', 'secure' => true, 'httponly' => true, 'samesite' => $SAMESITE]);
-        session_start();
         session_destroy();
         echo json_encode([
             'success' => true,
@@ -89,6 +89,7 @@ switch ($action) {
 
     case 'upload':
 	is_auth();
+	if($FOLDERUPLOAD) upload_to_folder($data['db'],$data['folder'],$_FILES["files"]);
 	echo json_encode(uploadFilesToAI($data['db'],$data['folder'],$_FILES["files"]));
         break;
 

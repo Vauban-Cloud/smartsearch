@@ -14,6 +14,8 @@ $USERNAME = "admin";
 // UPDATE THIS FIELD !
 // echo -n "YourPassword123" | openssl dgst -sha3-512 | cut -d ' ' -f 2
 $HASHEDPASS = "";
+// Editor also populates PDF folder
+$FOLDERUPLOAD = true;
 
 // Additional prompt post-RAG
 $ADDPROMPT = [

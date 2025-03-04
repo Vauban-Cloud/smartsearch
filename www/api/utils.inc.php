@@ -93,6 +93,27 @@ function delKey($basename) {
     return $result !== false;
 }
 
+// Upload Files(s) to local folder
+function upload_to_folder($docBase, $folder, $files) {
+    if (empty($files['name'])) return false;
+    $targetDir = "../files/$docBase/$folder/";
+    if (!is_dir($targetDir) && !mkdir($targetDir, 0755, true)) return false;
+    $fileCount = count($files['name']);
+    for ($i = 0; $i < $fileCount; $i++) {
+        $filename = $files['name'][$i];
+        $tmp_path = $files['tmp_name'][$i];
+        $error = $files['error'][$i];
+        $size = $files['size'][$i];
+        if ($error !== UPLOAD_ERR_OK || $size <= 0) return false;
+        $safeFilename = preg_replace('/[^\w\-\.]/', '_', $filename);
+        $targetFile = $targetDir . $safeFilename;
+	if (copy($tmp_path, $targetFile)) {
+            $result['files'][] = $safeFilename;
+        }
+    }
+    return $result;
+}
+
 // Upload file to RAG using Vauban API
 function uploadFilesToAI($docBase,$folder,$files) {
     global $APIKEY;
