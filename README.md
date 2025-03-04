@@ -21,7 +21,7 @@ However, you can use this interface for internal or Internet-facing use-cases wi
 ## Prerequisites
 
 Before starting the installation, ensure you have:
-- Web server (HTTPS only) with PHP 7.4+ support (PHP required only in the "api/" folder)
+- Web server (HTTPS only) with PHP 7.4+ support and PHP-Curl (PHP required only in the "api/" folder)
 - API key(s) for Vauban AI (one key for each document base)
 - Git installed on your system
 - Basic understanding of JSON and PHP configuration
@@ -49,11 +49,11 @@ client_max_body_size 48M;
 
 2. Set proper permissions:
    ```bash
-   chmod 750 ./www
-   chmod 750 ./www/api
-   chmod 750 ./www/assets
-   chmod 750 ./www/icons
-   chmod 660 ./.config.php
+   chmod 755 ./www
+   chmod 755 ./www/api
+   chmod 755 ./www/assets
+   chmod 755 ./www/icons
+   chmod 644 ./.config.php
    chgrp -R <your_PHP_user> ./www ./.config.php
    ```
 
